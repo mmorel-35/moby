@@ -32,15 +32,15 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           fetch-depth: 0
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@885d1462b80bc1c1c7f0b00334ad271f09369c55 # v2.10.0
       -
         name: Build
-        uses: docker/bake-action@v2
+        uses: docker/bake-action@6c87dcca988e4e074e3ab1f976a70f63ec9673fb # v2.3.0
         with:
           targets: ${{ matrix.target }}
       -
@@ -53,7 +53,7 @@ jobs:
           find ${{ env.DESTDIR }} -type f -exec file -e ascii -- {} +
       -
         name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: ${{ matrix.target }}
           path: ${{ env.DESTDIR }}
@@ -69,7 +69,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
       -
         name: Create matrix
         id: platforms
@@ -93,7 +93,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           fetch-depth: 0
       -
@@ -103,10 +103,10 @@ jobs:
           echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@885d1462b80bc1c1c7f0b00334ad271f09369c55 # v2.10.0
       -
         name: Build
-        uses: docker/bake-action@v2
+        uses: docker/bake-action@6c87dcca988e4e074e3ab1f976a70f63ec9673fb # v2.3.0
         with:
           targets: all
           set: |
@@ -121,7 +121,7 @@ jobs:
           find ${{ env.DESTDIR }} -type f -exec file -e ascii -- {} +
       -
         name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: cross-${{ env.PLATFORM_PAIR }}
           path: ${{ env.DESTDIR }}
