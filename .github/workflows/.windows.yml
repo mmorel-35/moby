@@ -206,7 +206,7 @@ jobs:
           go-version: ${{ env.GO_VERSION }}
       -
         name: Download artifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@eaceaf801fd36c7dee90939fad912460b18a1ffe # v4.1.2
         with:
           name: ${{ inputs.os }}-${{ inputs.storage }}-unit-reports
           path: /tmp/artifacts
@@ -299,7 +299,7 @@ jobs:
           Get-ChildItem Env: | Out-String
       -
         name: Download artifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@eaceaf801fd36c7dee90939fad912460b18a1ffe # v4.1.2
         with:
           name: build-${{ inputs.storage }}-${{ inputs.os }}
           path: ${{ env.BIN_OUT }}
@@ -531,7 +531,7 @@ jobs:
           go-version: ${{ env.GO_VERSION }}
       -
         name: Download artifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@eaceaf801fd36c7dee90939fad912460b18a1ffe # v4.1.2
         with:
           name: ${{ inputs.os }}-${{ inputs.storage }}-integration-reports-${{ matrix.runtime }}
           path: /tmp/artifacts
