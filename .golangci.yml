@@ -35,6 +35,7 @@ linters:
     - ineffassign
     - makezero                  # Finds slice declarations with non-zero initial length.
     - mirror                    # Detects wrong mirror patterns of bytes/strings usage.
+    - modernize                 # Suggests simplifications based on modern Go language/library features.
     - misspell                  # Detects commonly misspelled English words in comments.
     - nakedret                  # Detects uses of naked returns.
     - nilnesserr                # Detects returning nil errors. It combines the features of nilness and nilerr,
@@ -201,6 +202,10 @@ linters:
           # Enforce that gotest.tools/v3/assert/cmp is always aliased as "is"
         - pkg: gotest.tools/v3/assert/cmp
           alias: is
+
+    modernize:
+      disable:
+        - omitzero # Keep API JSON contracts unchanged for nested struct fields.
 
     nakedret:
       # Disallow naked returns if func has more lines of code than this setting.
